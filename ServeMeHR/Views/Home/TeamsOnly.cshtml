@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "TeamsOnly";
+}
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="col-md-3">
+    <p>These links allow you to process requests for your team.</p>
+    @Html.ActionLink("Team Service Requests", "Index", "TeamServiceRequests")<br />
+    @Html.ActionLink("Assigned Requests", "Index", "AssignedServiceRequests")<br />
+</div>
+

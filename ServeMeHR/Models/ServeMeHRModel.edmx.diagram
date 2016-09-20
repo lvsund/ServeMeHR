@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6216404b37ef490c9f96ffb6a9c8a63a" Name="Diagram1">
+        <EntityTypeShape EntityType="ServeMeHRModel.ADInformation" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.ApplicConf" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.Appointment" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.FileDetail" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.IndividualAssignmentHistory" Width="1.5" PointX="12.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.Member" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.Priority" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.RequestType" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.RequestTypeStep" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.ServiceRequestNote" Width="1.5" PointX="9.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.ServiceRequest" Width="1.5" PointX="7.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.StatusSet" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.StatusType" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.StepHistory" Width="1.5" PointX="12.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.TeamAssignmentHistory" Width="1.5" PointX="12.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.TeamMember" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ServeMeHRModel.Team" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="ServeMeHRModel.FK_FileDetail_ServiceRequests" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_IndividualAssignmentHistories_dbo_ServiceRequests_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_IndividualAssignmentHistories_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_Members_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_Members_Member1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_TeamMembers_dbo_Members_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_Priorities_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_Priorities_Priority" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_Priorities_dbo_Teams_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_Priorities_Priority1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_RequestTypes_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_RequestTypes_dbo_Teams_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_StepHistories_dbo_RequestTypeSteps_RequestTypeStep" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_ServiceRequestNotes_ServiceRequests" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_StatusSets_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_StatusSets_Status1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_ServiceRequests_dbo_Teams_Team1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_StepHistories_dbo_ServiceRequests_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_TeamAssignmentHistories_dbo_ServiceRequests_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_StatusSets_dbo_StatusTypes_StatusType" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_StatusSets_dbo_StatusTypes_StatusType1" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_TeamAssignmentHistories_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ServeMeHRModel.FK_dbo_TeamMembers_dbo_Teams_Team" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

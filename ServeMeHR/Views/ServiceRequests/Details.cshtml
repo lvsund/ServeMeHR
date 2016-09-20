@@ -1,0 +1,297 @@
+﻿@model ServeMeHR.Models.ServiceRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestHeading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestHeading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeSubmitted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeSubmitted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeStarted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeStarted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RowVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RowVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Member1.MemberUserid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member1.MemberUserid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority1.PriorityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority1.PriorityDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestType1.RequestTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestType1.RequestTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTypeStep1.StepDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTypeStep1.StepDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusSet.StatusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusSet.StatusDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team1.TeamDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team1.TeamDescription)
+        </dd>
+    </dl>
+</div>
+@if (ViewBag.FileUp == true)
+{
+    <div class="editor-label">
+        <label>Files:</label>
+    </div>
+
+    <ul class="attachment">
+        @foreach (var item in Model.FileDetails)
+        {
+            <li>
+                <a class="title" href="/ServiceRequests/Download/?p=@(item.Id + item.Extension)&d=@item.FileName">@item.FileName</a>
+                @*<a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>*@
+            </li>
+        }
+    </ul>
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+<body>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Notes</a></li>
+            <li><a href="#tabs-2">Team Assignment History</a></li>
+            <li><a href="#tabs-3">Individual Assignment History</a></li>
+            <li><a href="#tabs-4">Request Type Step History</a></li>
+        </ul>
+        <div id="tabs-1">
+            @*@Html.ActionLink("New Comment", "Create", "ServiceRequestNotes",new { ServiceRequest = Model.Id },null )<br />*@
+
+            <table class="table">
+                <tr>
+                    <th>Date</th>
+                    <th>Who</th>
+                    <th>Comment</th>
+                </tr>
+                @foreach (var item in Model.ServiceRequestNotes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastUpdated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WrittenBy)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NoteDescription)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="tabs-2">
+            <table class="table">
+                <tr>
+                    <th>Assigned BY</th>
+                    <th>Date Assigned</th>
+                    <th>Team</th>
+                </tr>
+                @foreach (var item in Model.TeamAssignmentHistories)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssignedBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAssigned)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Team1.TeamDescription)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div id="tabs-3">
+            <table class="table">
+                <tr>
+                    <th>Assigned BY</th>
+                    <th>Assigned To</th>
+                    <th>Date Assigned</th>
+                </tr>
+                @foreach (var item in Model.IndividualAssignmentHistories)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssignedBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssignedTo)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateAssigned)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        <div id="tabs-4">
+            <table class="table">
+                <tr>
+                    <th>Last Updated</th>
+                    <th>Step</th>
+                </tr>
+                @foreach (var item in Model.StepHistories)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastUpdated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RequestTypeStep1.StepDescription)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

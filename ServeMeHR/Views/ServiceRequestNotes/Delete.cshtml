@@ -1,0 +1,56 @@
+﻿@model ServeMeHR.Models.ServiceRequestNote
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ServiceRequestNote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WrittenBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WrittenBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceRequest1.RequestHeading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceRequest1.RequestHeading)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

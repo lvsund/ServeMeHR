@@ -1,0 +1,385 @@
+﻿@model ServeMeHR.Models.ServiceRequest
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        if ($("#Team").val() == '0') {
+            var requestTypeDefaultValue = "<option value='0'>--Select a team first--</option>";
+            $("#RequestType").html(requestTypeDefaultValue).show();
+            var prioritiesDefaultValue = "<option value='0'>--Select a team first--</option>";
+            $("#Priority").html(prioritiesDefaultValue).show();
+            var membersDefaultValue = "<option value='0'>--Select a team first--</option>";
+            $("#Member").html(membersDefaultValue).show();
+        }
+
+        $("#Team").change(function () {
+            var selectedItemValue = $("#Team").val();
+
+            var ddlRequestTypes = $("#RequestType");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetRequestTypeByTeam", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlRequestTypes.html('');
+                    $.each(data, function (id, option) {
+                        ddlRequestTypes.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load request types!!.');
+                }
+            });
+
+            var ddlPriorities = $("#Priority");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetPrioritiesByTeam", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlPriorities.html('');
+                    $.each(data, function (id, option) {
+                        ddlPriorities.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load priorities!!.');
+                }
+            });
+
+            var ddlMembers = $("#Member");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetMembersByTeam", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlMembers.html('');
+                    $.each(data, function (id, option) {
+                        ddlMembers.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load members!!.');
+                }
+            });
+
+        });
+
+        $("#Priority").mousedown(function () {
+            var selectedItemValue = $("#Team").val();
+            var ddlPriorities = $("#Priority");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetPrioritiesByTeam", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlPriorities.html('');
+                    $.each(data, function (id, option) {
+                        ddlPriorities.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load priorities!!.');
+                }
+            });
+        });
+
+        $("#RequestType").mousedown(function () {
+            var selectedItemValue = $("#Team").val();
+            var ddlRequestTypes = $("#RequestType");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetRequestTypeByTeam", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlRequestTypes.html('');
+                    $.each(data, function (id, option) {
+                        ddlRequestTypes.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load request types!!.');
+                }
+            });
+        });
+
+        $("#Member").mousedown(function () {
+            var selectedItemValue = $("#Team").val();
+            var ddlMembers = $("#Member");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetMembersByTeam", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlMembers.html('');
+                    $.each(data, function (id, option) {
+                        ddlMembers.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load members!!.');
+                }
+            });
+        });
+
+        @*$("#RequestType").change(function () {
+            var selectedItemValue = $(this).val();
+
+            var ddlRequestTypeSteps = $("#RequestTypeStep");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetRequestTypeStepsByRequestType", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlRequestTypeSteps.html('');
+                    $.each(data, function (id, option) {
+                        ddlRequestTypeSteps.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load request type steps!!.');
+                }
+            });
+        });*@
+
+        $("#RequestTypeStep").mousedown(function () {
+            var selectedItemValue = $("#RequestType").val();
+
+            var ddlRequestTypeSteps = $("#RequestTypeStep");
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: '@Url.Action("GetRequestTypeStepsByRequestType", "ServiceRequests")',
+                data: { "id": selectedItemValue },
+                success: function (data) {
+                    ddlRequestTypeSteps.html('');
+                    $.each(data, function (id, option) {
+                        ddlRequestTypeSteps.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Found error to load request type steps!!.');
+                }
+            });
+        });
+
+        $('.deleteItem').click(function (e) {
+            e.preventDefault();
+            var $ctrl = $(this);
+            if (confirm('Do you really want to delete this file?')) {
+                $.ajax({
+                    url: '@Url.Action("DeleteFile")',
+                    type: 'POST',
+                    data: { id: $(this).data('id') }
+                }).done(function (data) {
+                    if (data.Result == "OK") {
+                        $ctrl.closest('li').remove();
+                    }
+                    else if (data.Result.Message) {
+                        alert(data.Result.Message);
+                    }
+                }).fail(function () {
+                    alert("There is something wrong. Please try again.");
+                })
+
+            }
+        });
+    });
+</script>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <h4>ServiceRequest</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestHeading, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestHeading, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestHeading, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestorID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestorID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestorID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestorFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestorFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestorFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestorLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestorLastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestorLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestorPhone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestorPhone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestorPhone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestorEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RequestorEmail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RequestorEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.DateTimeSubmitted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.DateTimeSubmitted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateTimeSubmitted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.DateTimeStarted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.DateTimeStarted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateTimeStarted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(model => model.DateTimeCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.DateTimeCompleted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateTimeCompleted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Team, "Team", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Team", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Team, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Priority, "Priority", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Priority", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestType, "RequestType", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RequestType", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RequestType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RequestTypeStep, "RequestTypeStep", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RequestTypeStep", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RequestTypeStep, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member, "Member", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Member", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Member, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, "Status", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Status", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.RowVersion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RowVersion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RowVersion, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+        @if (ViewBag.FileUp == true)
+        {
+            <div class="editor-label">
+                <label>Files:</label>
+            </div>
+            <div class="editor-field">
+                <input type="file" name="file" multiple="multiple" />
+
+                <ul class="attachment">
+                    @foreach (var item in Model.FileDetails)
+                    {
+                        <li>
+                            <a class="title" href="/TeamServiceRequests/Download/?p=@(item.Id + item.Extension)&d=@item.FileName">@item.FileName</a>
+                            <a href="javascript:void(0);" data-id="@item.Id" class="deleteItem">X</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+}

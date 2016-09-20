@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "MyRequests";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<div class="col-md-3">
+    <h2>MyHR Requests</h2>
+    <p>These links allow you to create service requests to HR and to monitor their status.</p>
+    @Html.ActionLink("My Requests", "Index", "MyServiceRequests")<br />
+</div>

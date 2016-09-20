@@ -1,0 +1,130 @@
+﻿@model ServeMeHR.Models.ApplicConf
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ApplicConf</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FileSystemUpload)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileSystemUpload)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailConfirmation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailConfirmation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AppAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AppAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BackAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BackAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LDAPConn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LDAPConn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LDAPPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LDAPPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManageHREmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManageHREmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManageHREmailPass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManageHREmailPass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMTPHost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMTPHost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SMTPPort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SMTPPort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnableSSL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnableSSL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
