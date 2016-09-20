@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ManageHR</h1>
+    <p class="lead">A solution to truly manage your HR Services</p>
+    @*<p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Set Up</h2>
+        <p>
+            These  links allow you to populate the setup tables for the applicaion
+        </p>
+        @Html.ActionLink("Teams", "Index", "Teams")<br />
+        @Html.ActionLink("Members", "Index", "Members")<br />
+        @Html.ActionLink("Team Members", "Index", "TeamMembers")<br />
+        @Html.ActionLink("Priorities", "Index", "Priorities")<br />
+        @Html.ActionLink("Request Types", "Index", "RequestTypes")<br />
+        @Html.ActionLink("Request Type Steps", "Index", "RequestTypeSteps")<br />
+        @Html.ActionLink("Status Type", "Index", "StatusTypes")<br />
+        @Html.ActionLink("Statuses", "Index", "StatusSets")<br />
+        @Html.ActionLink("AD Information", "Index", "ADInformations")<br />
+        @Html.ActionLink("Mail", "Index", "SendMailer")<br />
+
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Administration</h2>
+        <p>These links provide you with ability to see any requests or appointments regardless of team</p>
+        @Html.ActionLink("ServiceRequests", "Index", "ServiceRequests")<br />
+        @Html.ActionLink("Appointments", "Index", "Appointments")<br />
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-3">
+        <h2>Team Activities</h2>
+        <p>These links allow you to process requests for your team.</p>
+        @Html.ActionLink("Team Service Requests", "Index", "TeamServiceRequests")<br />
+        @Html.ActionLink("Assigned Requests", "Index", "AssignedServiceRequests")<br />
+
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="col-md-3">
+        <h2>MyHR Requests</h2>
+        <p>These links allow you to create service requests to HR and to monitor their status.</p>
+        @Html.ActionLink("My Requests", "Index", "MyServiceRequests")<br />
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

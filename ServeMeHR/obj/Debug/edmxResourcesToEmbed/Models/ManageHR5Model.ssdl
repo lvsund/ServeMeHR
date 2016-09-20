@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ServeMeHRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADInformations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sAMAccountNAme" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="displayName" Type="nvarchar" MaxLength="255" />
+    <Property Name="mail" Type="nvarchar" MaxLength="255" />
+    <Property Name="title" Type="nvarchar" MaxLength="255" />
+    <Property Name="telephoneNumber" Type="nvarchar" MaxLength="255" />
+    <Property Name="givenName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="sn" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="company" Type="nvarchar" MaxLength="255" />
+    <Property Name="wwWHomePage" Type="nvarchar" MaxLength="255" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="255" />
+    <Property Name="cn" Type="nvarchar" MaxLength="255" />
+    <Property Name="APPUSERNAME" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ApplicConfs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileSystemUpload" Type="bit" Nullable="false" />
+    <Property Name="ADActive" Type="bit" Nullable="false" />
+    <Property Name="EmailConfirmation" Type="bit" Nullable="false" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="Modified" Type="datetimeoffset" Precision="7" />
+    <Property Name="AppAdmin" Type="nvarchar" MaxLength="255" />
+    <Property Name="BackAdmin" Type="nvarchar" MaxLength="255" />
+    <Property Name="LDAPConn" Type="nvarchar" MaxLength="255" />
+    <Property Name="LDAPPath" Type="nvarchar" MaxLength="255" />
+    <Property Name="ManageHREmail" Type="nvarchar" MaxLength="255" />
+    <Property Name="ManageHREmailPass" Type="nvarchar" MaxLength="255" />
+    <Property Name="SMTPHost" Type="nvarchar" MaxLength="255" />
+    <Property Name="SMTPPort" Type="int" />
+    <Property Name="EnableSSL" Type="bit" />
+  </EntityType>
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="StartTime" Type="datetime" Nullable="false" />
+    <Property Name="EndTime" Type="datetime" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="255" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+    <Property Name="MsgID" Type="nvarchar" MaxLength="255" />
+    <Property Name="MsgSequence" Type="int" />
+    <Property Name="SenderEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RecipientEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FileDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="10" />
+    <Property Name="ServiceRequestID" Type="int" />
+  </EntityType>
+  <EntityType Name="IndividualAssignmentHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssignedTo" Type="int" Nullable="false" />
+    <Property Name="AssignedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateAssigned" Type="datetime" Nullable="false" />
+    <Property Name="ServiceRequest" Type="int" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberUserid" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MemberFirstName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MemberLastName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MemberFullName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MemberEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="MemberPhone" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Priorities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PriorityDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Team" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestTypeDescription" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="Team" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestTypeSteps">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StepDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="StepNumber" Type="int" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="RequestType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ServiceRequestNotes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NoteDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" />
+    <Property Name="WrittenBy" Type="nvarchar" MaxLength="255" />
+    <Property Name="ServiceRequest" Type="int" />
+  </EntityType>
+  <EntityType Name="ServiceRequests">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestHeading" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RequestDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="RequestorID" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="RequestorFirstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="RequestorLastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="RequestorPhone" Type="nvarchar" MaxLength="255" />
+    <Property Name="RequestorEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateTimeSubmitted" Type="datetime" />
+    <Property Name="DateTimeStarted" Type="datetime" />
+    <Property Name="DateTimeCompleted" Type="datetime" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="RequestType" Type="int" />
+    <Property Name="RequestTypeStep" Type="int" />
+    <Property Name="Member" Type="int" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Team" Type="int" Nullable="false" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatusSets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="StatusType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatusTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusTypeDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StepHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="RequestTypeStep" Type="int" Nullable="false" />
+    <Property Name="ServiceRequest" Type="int" />
+  </EntityType>
+  <EntityType Name="TeamAssignmentHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AssignedBy" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DateAssigned" Type="datetime" Nullable="false" />
+    <Property Name="ServiceRequest" Type="int" Nullable="false" />
+    <Property Name="Team" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeamMembers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Member" Type="int" Nullable="false" />
+    <Property Name="Team" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Teams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeamDescription" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="TeamEmailAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Priorities_dbo_Teams_Team">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Priorities" Type="Self.Priorities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Priorities">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestTypes_dbo_Teams_Team">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestTypes">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType">
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="1" />
+    <End Role="RequestTypeSteps" Type="Self.RequestTypeSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestTypeSteps">
+        <PropertyRef Name="RequestType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_Members_Member">
+    <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_Priorities_Priority">
+    <End Role="Priorities" Type="Self.Priorities" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Priority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType">
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="RequestType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep">
+    <End Role="RequestTypeSteps" Type="Self.RequestTypeSteps" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypeSteps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="RequestTypeStep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_StatusSets_Status">
+    <End Role="StatusSets" Type="Self.StatusSets" Multiplicity="1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusSets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_Teams_Team">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_StatusSets_dbo_StatusTypes_StatusType">
+    <End Role="StatusTypes" Type="Self.StatusTypes" Multiplicity="1" />
+    <End Role="StatusSets" Type="Self.StatusSets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatusSets">
+        <PropertyRef Name="StatusType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_IndividualAssignmentHistories_dbo_ServiceRequests_ServiceRequest">
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IndividualAssignmentHistories" Type="Self.IndividualAssignmentHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceRequests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IndividualAssignmentHistories">
+        <PropertyRef Name="ServiceRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Priorities_dbo_Teams_Team1">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="Priorities" Type="Self.Priorities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Priorities">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestTypes_dbo_Teams_Team1">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestTypes">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType1">
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="1" />
+    <End Role="RequestTypeSteps" Type="Self.RequestTypeSteps" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RequestTypeSteps">
+        <PropertyRef Name="RequestType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_Members_Member1">
+    <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_Priorities_Priority1">
+    <End Role="Priorities" Type="Self.Priorities" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priorities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Priority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType1">
+    <End Role="RequestTypes" Type="Self.RequestTypes" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="RequestType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep1">
+    <End Role="RequestTypeSteps" Type="Self.RequestTypeSteps" Multiplicity="0..1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypeSteps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="RequestTypeStep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_StatusSets_Status1">
+    <End Role="StatusSets" Type="Self.StatusSets" Multiplicity="1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusSets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ServiceRequests_dbo_Teams_Team1">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequests">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_StatusSets_dbo_StatusTypes_StatusType1">
+    <End Role="StatusTypes" Type="Self.StatusTypes" Multiplicity="1" />
+    <End Role="StatusSets" Type="Self.StatusSets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StatusSets">
+        <PropertyRef Name="StatusType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_StepHistories_dbo_RequestTypeSteps_RequestTypeStep">
+    <End Role="RequestTypeSteps" Type="Self.RequestTypeSteps" Multiplicity="1" />
+    <End Role="StepHistories" Type="Self.StepHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestTypeSteps">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StepHistories">
+        <PropertyRef Name="RequestTypeStep" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_StepHistories_dbo_ServiceRequests_ServiceRequest">
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StepHistories" Type="Self.StepHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceRequests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StepHistories">
+        <PropertyRef Name="ServiceRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeamAssignmentHistories_dbo_ServiceRequests_ServiceRequest">
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeamAssignmentHistories" Type="Self.TeamAssignmentHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceRequests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamAssignmentHistories">
+        <PropertyRef Name="ServiceRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeamAssignmentHistories_dbo_Teams_Team">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeamAssignmentHistories" Type="Self.TeamAssignmentHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamAssignmentHistories">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeamMembers_dbo_Members_Member">
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="TeamMembers" Type="Self.TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamMembers">
+        <PropertyRef Name="Member" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeamMembers_dbo_Teams_Team">
+    <End Role="Teams" Type="Self.Teams" Multiplicity="1" />
+    <End Role="TeamMembers" Type="Self.TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TeamMembers">
+        <PropertyRef Name="Team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FileDetail_ServiceRequests">
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FileDetails" Type="Self.FileDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceRequests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FileDetails">
+        <PropertyRef Name="ServiceRequestID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndividualAssignmentHistories_Members">
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="IndividualAssignmentHistories" Type="Self.IndividualAssignmentHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IndividualAssignmentHistories">
+        <PropertyRef Name="AssignedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceRequestNotes_ServiceRequests">
+    <End Role="ServiceRequests" Type="Self.ServiceRequests" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ServiceRequestNotes" Type="Self.ServiceRequestNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServiceRequests">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServiceRequestNotes">
+        <PropertyRef Name="ServiceRequest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ServeMeHRModelStoreContainer">
+    <EntitySet Name="ADInformations" EntityType="Self.ADInformations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplicConfs" EntityType="Self.ApplicConfs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileDetails" EntityType="Self.FileDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndividualAssignmentHistories" EntityType="Self.IndividualAssignmentHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Priorities" EntityType="Self.Priorities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestTypes" EntityType="Self.RequestTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestTypeSteps" EntityType="Self.RequestTypeSteps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceRequestNotes" EntityType="Self.ServiceRequestNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceRequests" EntityType="Self.ServiceRequests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusSets" EntityType="Self.StatusSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusTypes" EntityType="Self.StatusTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StepHistories" EntityType="Self.StepHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeamAssignmentHistories" EntityType="Self.TeamAssignmentHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeamMembers" EntityType="Self.TeamMembers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Priorities_dbo_Teams_Team" Association="Self.FK_dbo_Priorities_dbo_Teams_Team">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Priorities" EntitySet="Priorities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestTypes_dbo_Teams_Team" Association="Self.FK_dbo_RequestTypes_dbo_Teams_Team">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType" Association="Self.FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType">
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+      <End Role="RequestTypeSteps" EntitySet="RequestTypeSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_Members_Member" Association="Self.FK_dbo_ServiceRequests_dbo_Members_Member">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_Priorities_Priority" Association="Self.FK_dbo_ServiceRequests_dbo_Priorities_Priority">
+      <End Role="Priorities" EntitySet="Priorities" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType" Association="Self.FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType">
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep" Association="Self.FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep">
+      <End Role="RequestTypeSteps" EntitySet="RequestTypeSteps" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_StatusSets_Status" Association="Self.FK_dbo_ServiceRequests_dbo_StatusSets_Status">
+      <End Role="StatusSets" EntitySet="StatusSets" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_Teams_Team" Association="Self.FK_dbo_ServiceRequests_dbo_Teams_Team">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_StatusSets_dbo_StatusTypes_StatusType" Association="Self.FK_dbo_StatusSets_dbo_StatusTypes_StatusType">
+      <End Role="StatusTypes" EntitySet="StatusTypes" />
+      <End Role="StatusSets" EntitySet="StatusSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_IndividualAssignmentHistories_dbo_ServiceRequests_ServiceRequest" Association="Self.FK_dbo_IndividualAssignmentHistories_dbo_ServiceRequests_ServiceRequest">
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+      <End Role="IndividualAssignmentHistories" EntitySet="IndividualAssignmentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Priorities_dbo_Teams_Team1" Association="Self.FK_dbo_Priorities_dbo_Teams_Team1">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="Priorities" EntitySet="Priorities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestTypes_dbo_Teams_Team1" Association="Self.FK_dbo_RequestTypes_dbo_Teams_Team1">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType1" Association="Self.FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType1">
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+      <End Role="RequestTypeSteps" EntitySet="RequestTypeSteps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_Members_Member1" Association="Self.FK_dbo_ServiceRequests_dbo_Members_Member1">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_Priorities_Priority1" Association="Self.FK_dbo_ServiceRequests_dbo_Priorities_Priority1">
+      <End Role="Priorities" EntitySet="Priorities" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType1" Association="Self.FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType1">
+      <End Role="RequestTypes" EntitySet="RequestTypes" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep1" Association="Self.FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep1">
+      <End Role="RequestTypeSteps" EntitySet="RequestTypeSteps" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_StatusSets_Status1" Association="Self.FK_dbo_ServiceRequests_dbo_StatusSets_Status1">
+      <End Role="StatusSets" EntitySet="StatusSets" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ServiceRequests_dbo_Teams_Team1" Association="Self.FK_dbo_ServiceRequests_dbo_Teams_Team1">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_StatusSets_dbo_StatusTypes_StatusType1" Association="Self.FK_dbo_StatusSets_dbo_StatusTypes_StatusType1">
+      <End Role="StatusTypes" EntitySet="StatusTypes" />
+      <End Role="StatusSets" EntitySet="StatusSets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_StepHistories_dbo_RequestTypeSteps_RequestTypeStep" Association="Self.FK_dbo_StepHistories_dbo_RequestTypeSteps_RequestTypeStep">
+      <End Role="RequestTypeSteps" EntitySet="RequestTypeSteps" />
+      <End Role="StepHistories" EntitySet="StepHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_StepHistories_dbo_ServiceRequests_ServiceRequest" Association="Self.FK_dbo_StepHistories_dbo_ServiceRequests_ServiceRequest">
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+      <End Role="StepHistories" EntitySet="StepHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeamAssignmentHistories_dbo_ServiceRequests_ServiceRequest" Association="Self.FK_dbo_TeamAssignmentHistories_dbo_ServiceRequests_ServiceRequest">
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+      <End Role="TeamAssignmentHistories" EntitySet="TeamAssignmentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeamAssignmentHistories_dbo_Teams_Team" Association="Self.FK_dbo_TeamAssignmentHistories_dbo_Teams_Team">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="TeamAssignmentHistories" EntitySet="TeamAssignmentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeamMembers_dbo_Members_Member" Association="Self.FK_dbo_TeamMembers_dbo_Members_Member">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="TeamMembers" EntitySet="TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeamMembers_dbo_Teams_Team" Association="Self.FK_dbo_TeamMembers_dbo_Teams_Team">
+      <End Role="Teams" EntitySet="Teams" />
+      <End Role="TeamMembers" EntitySet="TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FileDetail_ServiceRequests" Association="Self.FK_FileDetail_ServiceRequests">
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+      <End Role="FileDetails" EntitySet="FileDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndividualAssignmentHistories_Members" Association="Self.FK_IndividualAssignmentHistories_Members">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="IndividualAssignmentHistories" EntitySet="IndividualAssignmentHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceRequestNotes_ServiceRequests" Association="Self.FK_ServiceRequestNotes_ServiceRequests">
+      <End Role="ServiceRequests" EntitySet="ServiceRequests" />
+      <End Role="ServiceRequestNotes" EntitySet="ServiceRequestNotes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

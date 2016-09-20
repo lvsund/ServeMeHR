@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f84fc4e465fb45949f054cd616232d9b" Name="Diagram1">
+        <EntityTypeShape EntityType="ManageHR5Model.ADInformation" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.ApplicConf" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.Appointment" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.FileMetaData" Width="1.5" PointX="9.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.FileStore" Width="1.5" PointX="12" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.IndividualAssignmentHistory" Width="1.5" PointX="12.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.Member" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.Priority" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.RequestType" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.RequestTypeStep" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.ServiceRequestNote" Width="1.5" PointX="9.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.ServiceRequest" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.StatusSet" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.StatusType" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.StepHistory" Width="1.5" PointX="9.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.TeamAssignmentHistory" Width="1.5" PointX="12.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.TeamMember" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManageHR5Model.Team" Width="1.5" PointX="5.375" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_FileMetaDatas_dbo_ServiceRequests_FileMetaData_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_FileStores_dbo_FileMetaDatas_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_IndividualAssignmentHistories_dbo_ServiceRequests_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_IndividualAssignmentHistories_Members" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_ServiceRequests_dbo_Members_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_TeamMembers_dbo_Members_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_Priorities_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_ServiceRequests_dbo_Priorities_Priority" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_RequestTypes_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_RequestTypeSteps_dbo_RequestTypes_RequestType" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_ServiceRequests_dbo_RequestTypes_RequestType" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_ServiceRequests_dbo_RequestTypeSteps_RequestTypeStep" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_StepHistories_dbo_RequestTypeSteps_RequestTypeStep" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_ServiceRequestNotes_ServiceRequests" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_ServiceRequests_dbo_StatusSets_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_ServiceRequests_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_StepHistories_dbo_ServiceRequests_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_TeamAssignmentHistories_dbo_ServiceRequests_ServiceRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_StatusSets_dbo_StatusTypes_StatusType" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_TeamAssignmentHistories_dbo_Teams_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="ManageHR5Model.FK_dbo_TeamMembers_dbo_Teams_Team" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

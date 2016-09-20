@@ -571,7 +571,6 @@ namespace ServeMeHR.Controllers
             int smtpPort = db.ApplicConfs.Select(s => s.SMTPPort).FirstOrDefault().Value;
             Boolean enabSSL = db.ApplicConfs.Select(s => s.EnableSSL).FirstOrDefault().Value;
             mail.To.Add(email);
-            //mail.From = new MailAddress("lyndon.sundmark@gmail.com");
             mail.From = new MailAddress(mailFrom);
 
             switch (statusstep)
@@ -593,7 +592,6 @@ namespace ServeMeHR.Controllers
             }
             mail.IsBodyHtml = true;
             SmtpClient smtp = new SmtpClient();
-            //smtp.Host = "smtp.gmail.com";
             smtp.Host = smtpHost;
 
             //smtp.Port = 587;

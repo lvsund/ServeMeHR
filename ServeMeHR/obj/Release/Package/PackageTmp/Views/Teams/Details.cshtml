@@ -1,0 +1,67 @@
+﻿@model ManageHR5.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamEmailAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamEmailAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamMembers)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Full Name</th>
+                    <th>UserID</th>
+                </tr>
+                @foreach (var item in Model.TeamMembers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Member1.MemberFullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Member1.MemberUserid)
+                        </td>
+                    </tr>
+                }
+            </table>
+</dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<span class="btn pull-right bump-bottom">
+
+    @Html.ActionLink("Add TeamMember",
+                "Create",   // this is the ActionMethod
+                "TeamMembers",  // this is the Controller name
+                new { Model.Id}, // id param
+                null  // these are htmlArguments - we don't have any
+
+                )
+
+</span>

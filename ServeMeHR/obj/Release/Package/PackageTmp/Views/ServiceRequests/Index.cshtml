@@ -1,0 +1,294 @@
+﻿@model IEnumerable<ManageHR5.Models.ServiceRequest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Service Requests</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+
+    <p>
+        @Html.DropDownList("StatusType", "Select a Value")
+    </p>
+    <p>
+        Find by Keyword in Heading Or Description: @Html.TextBox("SearchString")
+    </p>
+    <p>
+        <input type="submit" value="Search" />
+    </p>
+
+}
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestHeading)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.RequestDescription)
+            </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTimeSubmitted)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.DateTimeStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RowVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member1.MemberUserid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority1.PriorityDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestType1.RequestTypeDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestTypeStep1.StepDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusSet.StatusDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team1.TeamDescription)
+            </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestHeading)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.RequestDescription)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestorFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestorLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestorPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestorEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeSubmitted)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.DateTimeStarted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTimeCompleted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RowVersion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Member1.MemberUserid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority1.PriorityDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestType1.RequestTypeDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestTypeStep1.StepDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusSet.StatusDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team1.TeamDescription)
+                </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>*@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary list-panel" id="list-panel">
+            <div class="panel-heading list-panel-heading">
+                <h1 class="panel-title list-panel-title">Service Requests</h1>
+            </div>
+            <div class="panel-body">
+                <table id="ServiceRequests-data-table"
+                       class="table table-striped table-bordered"
+                       style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateTimeSubmitted)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestHeading)
+                            </th>
+                            @*<th>
+                @Html.DisplayNameFor(model => model.RequestDescription)
+            </th>*@
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.RequestorID)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestorFirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestorLastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestorPhone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RequestorEmail)
+                            </th>
+                           
+                            @*<th>
+                @Html.DisplayNameFor(model => model.DateTimeStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTimeCompleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RowVersion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Member1.MemberUserid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority1.PriorityDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestType1.RequestTypeDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestTypeStep1.StepDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusSet.StatusDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team1.TeamDescription)
+            </th>*@
+                            <th></th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateTimeSubmitted)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestHeading)
+                                </td>
+                                @*<td>
+            @Html.DisplayFor(modelItem => item.RequestDescription)
+        </td>*@
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.RequestorID)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestorFirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestorLastName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestorPhone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequestorEmail)
+                                </td>
+                                 @*<td>
+            @Html.DisplayFor(modelItem => item.DateTimeStarted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateTimeCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RowVersion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member1.MemberUserid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Priority1.PriorityDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestType1.RequestTypeDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestTypeStep1.StepDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusSet.StatusDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1.TeamDescription)
+        </td>*@
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+     $(document).ready(function () {
+
+         $('#ServiceRequests-data-table').DataTable({ "order": [[0, "desc"]] });
+         
+     });
+    </script>
+}
+

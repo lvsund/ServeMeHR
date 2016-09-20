@@ -38,7 +38,6 @@ namespace ServeMeHR.Controllers
                 mail.Body = Body;
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
-                //smtp.Host = "smtp.gmail.com";
                 //smtp.Port = 587;
                 //smtp.UseDefaultCredentials = false;
                 //smtp.Credentials = new System.Net.NetworkCredential

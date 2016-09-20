@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ManageHR5ModelStoreContainer" CdmEntityContainer="ManageHR5Entities">
+    <EntitySetMapping Name="ADInformations">
+      <EntityTypeMapping TypeName="ManageHR5Model.ADInformation">
+        <MappingFragment StoreEntitySet="ADInformations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sAMAccountNAme" ColumnName="sAMAccountNAme" />
+          <ScalarProperty Name="displayName" ColumnName="displayName" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="telephoneNumber" ColumnName="telephoneNumber" />
+          <ScalarProperty Name="givenName" ColumnName="givenName" />
+          <ScalarProperty Name="sn" ColumnName="sn" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="wwWHomePage" ColumnName="wwWHomePage" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="APPUSERNAME" ColumnName="APPUSERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicConfs">
+      <EntityTypeMapping TypeName="ManageHR5Model.ApplicConf">
+        <MappingFragment StoreEntitySet="ApplicConfs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileSystemUpload" ColumnName="FileSystemUpload" />
+          <ScalarProperty Name="ADActive" ColumnName="ADActive" />
+          <ScalarProperty Name="EmailConfirmation" ColumnName="EmailConfirmation" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="ManageHR5Model.Appointment">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="MsgID" ColumnName="MsgID" />
+          <ScalarProperty Name="MsgSequence" ColumnName="MsgSequence" />
+          <ScalarProperty Name="SenderEmail" ColumnName="SenderEmail" />
+          <ScalarProperty Name="RecipientEmail" ColumnName="RecipientEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileMetaDatas">
+      <EntityTypeMapping TypeName="ManageHR5Model.FileMetaData">
+        <MappingFragment StoreEntitySet="FileMetaDatas">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="UploadDateTime" ColumnName="UploadDateTime" />
+          <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+          <ScalarProperty Name="FileMetaData_ServiceRequest" ColumnName="FileMetaData_ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileStores">
+      <EntityTypeMapping TypeName="ManageHR5Model.FileStore">
+        <MappingFragment StoreEntitySet="FileStores">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileBinaryContent" ColumnName="FileBinaryContent" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndividualAssignmentHistories">
+      <EntityTypeMapping TypeName="ManageHR5Model.IndividualAssignmentHistory">
+        <MappingFragment StoreEntitySet="IndividualAssignmentHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="AssignedBy" ColumnName="AssignedBy" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="ManageHR5Model.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberUserid" ColumnName="MemberUserid" />
+          <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+          <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+          <ScalarProperty Name="MemberFullName" ColumnName="MemberFullName" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="MemberPhone" ColumnName="MemberPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priorities">
+      <EntityTypeMapping TypeName="ManageHR5Model.Priority">
+        <MappingFragment StoreEntitySet="Priorities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PriorityDescription" ColumnName="PriorityDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestTypes">
+      <EntityTypeMapping TypeName="ManageHR5Model.RequestType">
+        <MappingFragment StoreEntitySet="RequestTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestTypeDescription" ColumnName="RequestTypeDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestTypeSteps">
+      <EntityTypeMapping TypeName="ManageHR5Model.RequestTypeStep">
+        <MappingFragment StoreEntitySet="RequestTypeSteps">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+          <ScalarProperty Name="StepNumber" ColumnName="StepNumber" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceRequestNotes">
+      <EntityTypeMapping TypeName="ManageHR5Model.ServiceRequestNote">
+        <MappingFragment StoreEntitySet="ServiceRequestNotes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NoteDescription" ColumnName="NoteDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="WrittenBy" ColumnName="WrittenBy" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceRequests">
+      <EntityTypeMapping TypeName="ManageHR5Model.ServiceRequest">
+        <MappingFragment StoreEntitySet="ServiceRequests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestHeading" ColumnName="RequestHeading" />
+          <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+          <ScalarProperty Name="RequestorID" ColumnName="RequestorID" />
+          <ScalarProperty Name="RequestorFirstName" ColumnName="RequestorFirstName" />
+          <ScalarProperty Name="RequestorLastName" ColumnName="RequestorLastName" />
+          <ScalarProperty Name="RequestorPhone" ColumnName="RequestorPhone" />
+          <ScalarProperty Name="RequestorEmail" ColumnName="RequestorEmail" />
+          <ScalarProperty Name="DateTimeSubmitted" ColumnName="DateTimeSubmitted" />
+          <ScalarProperty Name="DateTimeStarted" ColumnName="DateTimeStarted" />
+          <ScalarProperty Name="DateTimeCompleted" ColumnName="DateTimeCompleted" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+          <ScalarProperty Name="RequestTypeStep" ColumnName="RequestTypeStep" />
+          <ScalarProperty Name="Member" ColumnName="Member" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusSets">
+      <EntityTypeMapping TypeName="ManageHR5Model.StatusSet">
+        <MappingFragment StoreEntitySet="StatusSets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusTypes">
+      <EntityTypeMapping TypeName="ManageHR5Model.StatusType">
+        <MappingFragment StoreEntitySet="StatusTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusTypeDescription" ColumnName="StatusTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StepHistories">
+      <EntityTypeMapping TypeName="ManageHR5Model.StepHistory">
+        <MappingFragment StoreEntitySet="StepHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="RequestTypeStep" ColumnName="RequestTypeStep" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamAssignmentHistories">
+      <EntityTypeMapping TypeName="ManageHR5Model.TeamAssignmentHistory">
+        <MappingFragment StoreEntitySet="TeamAssignmentHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssignedBy" ColumnName="AssignedBy" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamMembers">
+      <EntityTypeMapping TypeName="ManageHR5Model.TeamMember">
+        <MappingFragment StoreEntitySet="TeamMembers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Member" ColumnName="Member" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="ManageHR5Model.Team">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeamDescription" ColumnName="TeamDescription" />
+          <ScalarProperty Name="TeamEmailAddress" ColumnName="TeamEmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

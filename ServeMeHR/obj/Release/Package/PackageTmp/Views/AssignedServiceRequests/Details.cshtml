@@ -1,0 +1,154 @@
+﻿@model ManageHR5.Models.ServiceRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestHeading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestHeading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeSubmitted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeSubmitted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeStarted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeStarted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateTimeCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateTimeCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RowVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RowVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Member1.MemberUserid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Member1.MemberUserid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Priority1.PriorityDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Priority1.PriorityDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestType1.RequestTypeDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestType1.RequestTypeDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTypeStep1.StepDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTypeStep1.StepDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusSet.StatusDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusSet.StatusDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team1.TeamDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team1.TeamDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

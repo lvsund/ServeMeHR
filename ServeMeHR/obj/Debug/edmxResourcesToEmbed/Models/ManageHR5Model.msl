@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ServeMeHRModelStoreContainer" CdmEntityContainer="ServeMeHREntities">
+    <EntitySetMapping Name="ADInformations">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.ADInformation)">
+        <MappingFragment StoreEntitySet="ADInformations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sAMAccountNAme" ColumnName="sAMAccountNAme" />
+          <ScalarProperty Name="displayName" ColumnName="displayName" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="telephoneNumber" ColumnName="telephoneNumber" />
+          <ScalarProperty Name="givenName" ColumnName="givenName" />
+          <ScalarProperty Name="sn" ColumnName="sn" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="wwWHomePage" ColumnName="wwWHomePage" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="cn" ColumnName="cn" />
+          <ScalarProperty Name="APPUSERNAME" ColumnName="APPUSERNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicConfs">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.ApplicConf)">
+        <MappingFragment StoreEntitySet="ApplicConfs">
+          <ScalarProperty Name="EnableSSL" ColumnName="EnableSSL" />
+          <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
+          <ScalarProperty Name="SMTPHost" ColumnName="SMTPHost" />
+          <ScalarProperty Name="ManageHREmailPass" ColumnName="ManageHREmailPass" />
+          <ScalarProperty Name="ManageHREmail" ColumnName="ManageHREmail" />
+          <ScalarProperty Name="LDAPPath" ColumnName="LDAPPath" />
+          <ScalarProperty Name="LDAPConn" ColumnName="LDAPConn" />
+          <ScalarProperty Name="BackAdmin" ColumnName="BackAdmin" />
+          <ScalarProperty Name="AppAdmin" ColumnName="AppAdmin" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileSystemUpload" ColumnName="FileSystemUpload" />
+          <ScalarProperty Name="ADActive" ColumnName="ADActive" />
+          <ScalarProperty Name="EmailConfirmation" ColumnName="EmailConfirmation" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="Modified" ColumnName="Modified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.Appointment)">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="MsgID" ColumnName="MsgID" />
+          <ScalarProperty Name="MsgSequence" ColumnName="MsgSequence" />
+          <ScalarProperty Name="SenderEmail" ColumnName="SenderEmail" />
+          <ScalarProperty Name="RecipientEmail" ColumnName="RecipientEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndividualAssignmentHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.IndividualAssignmentHistory)">
+        <MappingFragment StoreEntitySet="IndividualAssignmentHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+          <ScalarProperty Name="AssignedBy" ColumnName="AssignedBy" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.Member)">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MemberUserid" ColumnName="MemberUserid" />
+          <ScalarProperty Name="MemberFirstName" ColumnName="MemberFirstName" />
+          <ScalarProperty Name="MemberLastName" ColumnName="MemberLastName" />
+          <ScalarProperty Name="MemberFullName" ColumnName="MemberFullName" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="MemberPhone" ColumnName="MemberPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priorities">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.Priority)">
+        <MappingFragment StoreEntitySet="Priorities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PriorityDescription" ColumnName="PriorityDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.RequestType)">
+        <MappingFragment StoreEntitySet="RequestTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestTypeDescription" ColumnName="RequestTypeDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestTypeSteps">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.RequestTypeStep)">
+        <MappingFragment StoreEntitySet="RequestTypeSteps">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StepDescription" ColumnName="StepDescription" />
+          <ScalarProperty Name="StepNumber" ColumnName="StepNumber" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceRequestNotes">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.ServiceRequestNote)">
+        <MappingFragment StoreEntitySet="ServiceRequestNotes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NoteDescription" ColumnName="NoteDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="WrittenBy" ColumnName="WrittenBy" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceRequests">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.ServiceRequest)">
+        <MappingFragment StoreEntitySet="ServiceRequests">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RequestHeading" ColumnName="RequestHeading" />
+          <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+          <ScalarProperty Name="RequestorID" ColumnName="RequestorID" />
+          <ScalarProperty Name="RequestorFirstName" ColumnName="RequestorFirstName" />
+          <ScalarProperty Name="RequestorLastName" ColumnName="RequestorLastName" />
+          <ScalarProperty Name="RequestorPhone" ColumnName="RequestorPhone" />
+          <ScalarProperty Name="RequestorEmail" ColumnName="RequestorEmail" />
+          <ScalarProperty Name="DateTimeSubmitted" ColumnName="DateTimeSubmitted" />
+          <ScalarProperty Name="DateTimeStarted" ColumnName="DateTimeStarted" />
+          <ScalarProperty Name="DateTimeCompleted" ColumnName="DateTimeCompleted" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="RequestType" ColumnName="RequestType" />
+          <ScalarProperty Name="RequestTypeStep" ColumnName="RequestTypeStep" />
+          <ScalarProperty Name="Member" ColumnName="Member" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusSets">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.StatusSet)">
+        <MappingFragment StoreEntitySet="StatusSets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="StatusType" ColumnName="StatusType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.StatusType)">
+        <MappingFragment StoreEntitySet="StatusTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="StatusTypeDescription" ColumnName="StatusTypeDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StepHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.StepHistory)">
+        <MappingFragment StoreEntitySet="StepHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="RequestTypeStep" ColumnName="RequestTypeStep" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamAssignmentHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.TeamAssignmentHistory)">
+        <MappingFragment StoreEntitySet="TeamAssignmentHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AssignedBy" ColumnName="AssignedBy" />
+          <ScalarProperty Name="DateAssigned" ColumnName="DateAssigned" />
+          <ScalarProperty Name="ServiceRequest" ColumnName="ServiceRequest" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeamMembers">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.TeamMember)">
+        <MappingFragment StoreEntitySet="TeamMembers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Member" ColumnName="Member" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.Team)">
+        <MappingFragment StoreEntitySet="Teams">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TeamDescription" ColumnName="TeamDescription" />
+          <ScalarProperty Name="TeamEmailAddress" ColumnName="TeamEmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FileDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ServeMeHRModel.FileDetail)">
+        <MappingFragment StoreEntitySet="FileDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="ServiceRequestID" ColumnName="ServiceRequestID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

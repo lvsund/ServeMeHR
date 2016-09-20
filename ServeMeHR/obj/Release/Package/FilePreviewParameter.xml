@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/ManageHR5" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Lyndon\.A3HR\\documents\\visual\ studio\ 2015\\Projects\\ManageHR5\\ManageHR5\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Lyndon\.A3HR\\documents\\visual\ studio\ 2015\\Projects\\ManageHR5\\ManageHR5\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ManageHR5Entities-Web.config Connection String" description="" value="metadata=res://*/Models.ManageHR5Model.csdl|res://*/Models.ManageHR5Model.ssdl|res://*/Models.ManageHR5Model.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=WIN-CORE-I7\VS2;initial catalog=MANAGEHR4;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Lyndon\.A3HR\\documents\\visual\ studio\ 2015\\Projects\\ManageHR5\\ManageHR5\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ManageHR5Entities']/@connectionString" />
+  </parameter>
+</parameters>
