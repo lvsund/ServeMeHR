@@ -179,7 +179,6 @@
 
 <h2>Edit</h2>
 
-@*@using (Html.BeginForm())*@
 @using (Html.BeginForm("Edit", "MyServiceRequests", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
@@ -281,11 +280,9 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.Team, "Team", htmlAttributes: new { @class = "control-label col-md-2" })*@
             @Html.LabelFor(model => model.Team, "Team", htmlAttributes: new { @class = "hidden" })
 
             <div class="col-md-10">
-                @*@Html.DropDownList("Team", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.DropDownList("Team", null, htmlAttributes: new { @class = "hidden" })
 
                 @Html.ValidationMessageFor(model => model.Team, "", new { @class = "text-danger" })
@@ -293,29 +290,22 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.Priority, "Priority", htmlAttributes: new { @class = "control-label col-md-2" })*@
             @Html.HiddenFor(model => model.Priority, "Priority")
             <div class="col-md-10">
-                @*@Html.DropDownList("Priority", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.DropDownList("Priority", null, htmlAttributes: new { @class = "hidden" })
                 @Html.ValidationMessageFor(model => model.Priority, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.RequestType, "RequestType", htmlAttributes: new { @class = "control-label col-md-2" })*@
             @Html.HiddenFor(model => model.RequestType, "RequestType")
             <div class="col-md-10">
-                @*@Html.DropDownList("RequestType", null, htmlAttributes: new { @class = "form-control" })*@
                 @Html.DropDownList("RequestType", null, htmlAttributes: new { @class = "hidden" })
                 @Html.ValidationMessageFor(model => model.RequestType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.RequestTypeStep, "RequestTypeStep", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("RequestTypeStep", null, htmlAttributes: new { @class = "form-control" })*@
             @Html.HiddenFor(model => model.RequestTypeStep, "RequestTypeStep")
             <div class="col-md-10">
                 @Html.DropDownList("RequestTypeStep", null, htmlAttributes: new { @class = "hidden" })
@@ -325,9 +315,6 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.Member, "Member", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("Member", null, htmlAttributes: new { @class = "form-control" })*@
             @Html.HiddenFor(model => model.Member, "Member")
             <div class="col-md-10">
                 @Html.DropDownList("Member", null, htmlAttributes: new { @class = "hidden" }) @* hidden is defined in site.css*@
@@ -337,9 +324,6 @@
         </div>
 
         <div class="form-group">
-            @*@Html.LabelFor(model => model.Status, "Status", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("Status", null, htmlAttributes: new { @class = "form-control" })*@
             @Html.HiddenFor(model => model.Status, "Status")
             <div class="col-md-10">
                 @Html.DropDownList("Status", null, htmlAttributes: new { @class = "hidden" })
