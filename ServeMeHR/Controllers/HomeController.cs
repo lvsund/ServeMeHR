@@ -49,42 +49,5 @@ namespace ServeMeHR.Controllers
 
             return View();
         }
-
-        //public ActionResult MyRequests()
-        //{
-        //    ViewBag.Message = "Your Requests ";
-
-        //    return View();
-        //}
-
-        //public ActionResult TeamsOnly()
-        //{
-        //    ViewBag.Message = "Requests Processing ";
-
-        //    return View();
-        //}
-
-        //[Authorize(Users = "Admin" )]
-        //public ActionResult AdminOnly()
-
-        //{
-        //        ViewBag.Message = "Administrators Only";
-
-        //    return View();
-        //}
-
-        //protected override void OnException(ExceptionContext filterContext)
-        //{
-        //    filterContext.ExceptionHandled = true;
-
-        //    // Redirect on error:
-        //    filterContext.Result = RedirectToAction("Index", "Error");
-
-        //    // OR set the result without redirection:
-        //    filterContext.Result = new ViewResult
-        //    {
-        //        ViewName = "~/Views/Home/Error.cshtml"
-        //    };
-        //}
     }
 }
